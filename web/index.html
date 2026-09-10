@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clarify — drop a file</title>
+    <link rel="stylesheet" href="/card.css" />
+    <style>
+      main {
+        max-width: 40rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 1.4rem;
+        margin: 0 0 0.35rem;
+      }
+      .lede {
+        color: var(--muted);
+        margin: 0 0 1.25rem;
+      }
+      .drop {
+        border: 2px dashed var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        background: var(--card);
+        margin-bottom: 1rem;
+      }
+      .drop.dragover {
+        border-color: var(--action);
+        background: color-mix(in srgb, var(--action) 8%, var(--card));
+      }
+      .drop p {
+        margin: 0 0 0.75rem;
+        color: var(--muted);
+      }
+      .error {
+        color: #b00020;
+        margin: 0.75rem 0;
+      }
+      #card-root {
+        margin-top: 1rem;
+      }
+      a.eval-link {
+        color: var(--action);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Clarify</h1>
+      <p class="lede">
+        Drop a PDF or image. No login. Same card the extension shows.
+      </p>
+      <div class="drop" id="drop" tabindex="0">
+        <p>Drag a file here, or choose one.</p>
+        <input id="file" type="file" accept=".pdf,image/*,.png,.jpg,.jpeg,.webp" />
+      </div>
+      <p id="error" class="error" hidden></p>
+      <div id="card-root"></div>
+      <p><a class="eval-link" href="/eval">Eval metrics</a></p>
+    </main>
+    <script type="module">
+      import { renderCard } from "/card.mjs";
+
+      const drop = document.getElementById("drop");
+      const fileInput = document.getElementById("file");
+      const errorEl = document.getElementById("error");
+      const root = document.getElementById("card-root");
+
+      function showError(msg) {
+        errorEl.hidden = !msg;
+        errorEl.textContent = msg || "";
+      }
+
+      async function explainFile(file) {
+        showError("");
+        root.innerHTML = "";
+        const formData = new FormData();
+        formData.append("file", file, file.name);
+        let res;
+        try {
+          res = await fetch("/v1/explain", { method: "POST", body: formData });
+        } catch (err) {
+          showError("Could not reach the API.");
+          return;
+        }
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          showError(body.message || body.error || `Request failed (${res.status})`);
+          return;
+        }
+        if (!body.card) {
+          showError("No card in response.");
+          return;
+        }
+        renderCard(root, body.card);
+      }
+
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files && fileInput.files[0];
+        if (file) explainFile(file);
+      });
+
+      drop.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        drop.classList.add("dragover");
+      });
+      drop.addEventListener("dragleave", () => drop.classList.remove("dragover"));
+      drop.addEventListener("drop", (e) => {
+        e.preventDefault();
+        drop.classList.remove("dragover");
+        const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (file) explainFile(file);
+      });
+    </script>
+  </body>
+</html>

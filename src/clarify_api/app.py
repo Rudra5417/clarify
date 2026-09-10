@@ -1,4 +1,4 @@
-"""FastAPI app: POST /v1/explain, GET /v1/eval, and GET /health."""
+"""FastAPI app: POST /v1/explain, GET /v1/eval, GET /health, and static web/."""
 
 from __future__ import annotations
 
@@ -8,7 +8,8 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from starlette.datastructures import UploadFile
 
 from clarify.explain import ExplainError, explain
@@ -18,7 +19,9 @@ from clarify_api.privacy import get_privacy_logger, log_explain_event
 
 _IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
 _IMAGE_TYPES = ("image/png", "image/jpeg", "image/jpg", "image/webp", "image/")
-_EVAL_DIR = Path(__file__).resolve().parents[2] / "eval"
+_ROOT = Path(__file__).resolve().parents[2]
+_EVAL_DIR = _ROOT / "eval"
+_WEB_DIR = _ROOT / "web"
 
 
 def create_app(model: ExplainModel) -> FastAPI:
@@ -74,6 +77,13 @@ def create_app(model: ExplainModel) -> FastAPI:
                 card_type=card_type,
             )
 
+    @app.get("/eval")
+    def eval_page() -> FileResponse:
+        # StaticFiles(html=True) only auto-serves index.html / 404.html, not eval.html.
+        return FileResponse(_WEB_DIR / "eval.html")
+
+    # Mount after /v1 (and /eval) routes so those paths stay authoritative.
+    app.mount("/", StaticFiles(directory=_WEB_DIR, html=True), name="web")
     return app
 
 

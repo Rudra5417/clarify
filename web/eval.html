@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clarify — eval</title>
+    <link rel="stylesheet" href="/card.css" />
+    <style>
+      main {
+        max-width: 40rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 1.4rem;
+        margin: 0 0 0.35rem;
+      }
+      .lede {
+        color: var(--muted);
+        margin: 0 0 1.25rem;
+      }
+      .metrics {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        display: grid;
+        gap: 0.85rem;
+      }
+      .metric {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.25rem;
+        align-items: baseline;
+      }
+      .metric .name {
+        font-weight: 600;
+      }
+      .metric .value {
+        font-variant-numeric: tabular-nums;
+        font-size: 1.15rem;
+      }
+      .metric .hint {
+        grid-column: 1 / -1;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .note {
+        margin-top: 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      a {
+        color: var(--action);
+      }
+      .error {
+        color: #b00020;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Eval</h1>
+      <p class="lede">
+        Offline scores from the committed eval set. Catch rate is the headline —
+        not a single overall accuracy number.
+      </p>
+      <div id="metrics" class="metrics" aria-live="polite">Loading…</div>
+      <p class="note" id="note"></p>
+      <p><a href="/">Back to drop page</a></p>
+    </main>
+    <script type="module">
+      function pct(x) {
+        if (typeof x !== "number" || Number.isNaN(x)) return "—";
+        return `${(x * 100).toFixed(1)}%`;
+      }
+
+      const root = document.getElementById("metrics");
+      const note = document.getElementById("note");
+
+      try {
+        const res = await fetch("/v1/eval");
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.message || body.error || res.status);
+
+        root.innerHTML = `
+          <div class="metric">
+            <span class="name">Catch rate</span>
+            <span class="value">${pct(body.catch_rate)}</span>
+            <span class="hint">Among wrong fields, fraction marked unsure. Headline metric.</span>
+          </div>
+          <div class="metric">
+            <span class="name">Sure accuracy</span>
+            <span class="value">${pct(body.sure_accuracy)}</span>
+            <span class="hint">Among fields marked sure, fraction that match the label.</span>
+          </div>
+          <div class="metric">
+            <span class="name">Items</span>
+            <span class="value">${body.n_items ?? "—"}</span>
+            <span class="hint">Labeled eval set size.</span>
+          </div>
+        `;
+        if (body.note) note.textContent = body.note;
+      } catch (err) {
+        root.innerHTML = `<p class="error">Could not load eval: ${String(err.message || err)}</p>`;
+      }
+    </script>
+  </body>
+</html>

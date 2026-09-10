@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clarify</title>
+    <link rel="stylesheet" href="card.css" />
+    <style>
+      main {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.15rem;
+        margin: 0 0 0.75rem;
+      }
+      .drop {
+        border: 2px dashed var(--border);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-align: center;
+        background: var(--card);
+        margin-bottom: 1rem;
+      }
+      .drop p {
+        margin: 0 0 0.75rem;
+        color: var(--muted);
+      }
+      .error {
+        color: #b00020;
+        margin: 0.75rem 0;
+      }
+      .status {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+      }
+      #card-root {
+        margin-top: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Clarify</h1>
+      <p id="status" class="status" hidden></p>
+      <div id="drop" class="drop" hidden>
+        <p>Select text or drop a file.</p>
+        <input id="file" type="file" accept=".pdf,image/*,.png,.jpg,.jpeg,.webp" />
+      </div>
+      <p id="error" class="error" hidden></p>
+      <div id="card-root"></div>
+    </main>
+    <script type="module" src="sidepanel.js"></script>
+  </body>
+</html>

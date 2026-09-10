@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Clarify",
+  "version": "0.1.0",
+  "permissions": ["activeTab", "sidePanel", "scripting", "storage"],
+  "host_permissions": ["http://127.0.0.1:8788/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "commands": {
+    "explain": {
+      "suggested_key": { "default": "Ctrl+Shift+E" },
+      "description": "Explain this document"
+    }
+  }
+}

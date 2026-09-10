@@ -1,0 +1,154 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f4ef;
+  --card: #fff;
+  --ink: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #d9d4c8;
+  --action: #0b5fff;
+  --warn: #8a4b00;
+  --warn-bg: #fff4e0;
+  --unsure: #8a4b00;
+  --unsure-bg: #fff8e8;
+  --sure: #1b6b3a;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --ink: #f2f2f2;
+    --muted: #b0b0b0;
+    --border: #333;
+    --action: #7aa7ff;
+    --warn: #ffcc80;
+    --warn-bg: #3a2a12;
+    --unsure: #ffcc80;
+    --unsure-bg: #2a2418;
+    --sure: #7dcea0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  max-width: 40rem;
+}
+
+.what-this-is {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.card h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0.9rem 0 0.35rem;
+}
+
+.card section:first-of-type h2 {
+  margin-top: 0;
+}
+
+.summary p,
+.action-text {
+  margin: 0;
+}
+
+.action-text {
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--action);
+}
+
+.warnings ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--warn);
+  background: var(--warn-bg);
+  border-radius: 8px;
+  padding: 0.5rem 0.5rem 0.5rem 1.4rem;
+}
+
+.page-limit {
+  margin-top: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 0.9rem;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 7rem 1fr auto;
+  gap: 0.35rem 0.6rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.field .label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.field .value {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.45rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.field .status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.field.sure .status {
+  color: var(--sure);
+}
+
+.field.unsure {
+  background: var(--unsure-bg);
+  border-color: color-mix(in srgb, var(--unsure) 40%, var(--border));
+}
+
+.field.unsure .status {
+  color: var(--unsure);
+}
+
+.field .reason {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

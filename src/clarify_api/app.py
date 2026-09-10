@@ -15,7 +15,8 @@ from starlette.datastructures import UploadFile
 
 from clarify.explain import ExplainError, explain
 from clarify.extract import Extracted, extract_image, extract_pdf, extract_text
-from clarify.model import ExplainModel, resolve_model_from_env
+from clarify.model import ExplainModel
+from clarify_api.model import resolve_model_from_env
 from clarify_api.privacy import get_privacy_logger, log_explain_event
 
 _IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
@@ -104,10 +105,10 @@ def create_app(model: ExplainModel | None = None) -> FastAPI:
             return {"card": card.model_dump(mode="json")}
         except ExplainError as exc:
             error_code = exc.code
-            if exc.code == "timeout":
+            if exc.code in ("timeout", "model"):
                 return JSONResponse(
                     status_code=503,
-                    content={"error": "timeout", "message": "retry"},
+                    content={"error": exc.code, "message": "retry"},
                 )
             if exc.code in ("empty", "oversize"):
                 return JSONResponse(
@@ -115,8 +116,8 @@ def create_app(model: ExplainModel | None = None) -> FastAPI:
                     content={"error": exc.code, "message": exc.message},
                 )
             return JSONResponse(
-                status_code=500,
-                content={"error": exc.code, "message": exc.message},
+                status_code=503,
+                content={"error": exc.code, "message": "retry"},
             )
         finally:
             latency_ms = (time.perf_counter() - started) * 1000

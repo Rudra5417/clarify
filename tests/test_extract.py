@@ -5,7 +5,7 @@ from clarify.extract import (
     extract_pdf,
     extract_text,
 )
-from tests.fixtures.make_pdf import pdf_with_n_pages, pdf_with_text
+from tests.fixtures.make_pdf import pdf_blank, pdf_with_n_pages
 
 
 def test_pdf_over_two_pages_sets_page_limit_hit():
@@ -15,6 +15,23 @@ def test_pdf_over_two_pages_sets_page_limit_hit():
     assert out.error is None
     assert "page 1" in (out.text_layer or "")
     assert "page 3" not in (out.text_layer or "")
+
+
+def test_corrupt_pdf_is_named_error():
+    out = extract_pdf(b"not a pdf")
+    assert out.error in {"empty", "unreadable"}
+    assert out.kind == "pdf"
+
+
+def test_empty_pdf_text_layer_is_unreadable():
+    out = extract_pdf(pdf_blank())
+    assert out.error == "unreadable"
+    assert not (out.text_layer or "").strip()
+
+
+def test_empty_pdf_bytes_are_empty():
+    out = extract_pdf(b"")
+    assert out.error == "empty"
 
 
 def test_image_over_10mb_errors():

@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 from clarify.model import FakeExplainModel
 from clarify.schema import Card, CardField
 from clarify_api.app import create_app
-from tests.fixtures.make_pdf import pdf_with_n_pages, pdf_with_text
+from tests.fixtures.make_pdf import pdf_blank, pdf_with_n_pages, pdf_with_text
 
 
 def _client(model=None) -> TestClient:
@@ -36,6 +36,50 @@ def test_timeout_503_no_card():
     assert r.status_code == 503
     assert "card" not in r.json()
     assert r.json()["error"] == "timeout"
+
+
+def test_model_failure_503_no_card():
+    app = create_app(FakeExplainModel(Card(type="other", action="ignore", summary="x"), fail="model"))
+    r = TestClient(app).post("/v1/explain", json={"text": "hello", "fallback": False})
+    assert r.status_code == 503
+    assert "card" not in r.json()
+    assert r.json()["error"] == "model"
+    assert r.json()["message"] == "retry"
+
+
+def test_garbage_pdf_not_500():
+    r = _client().post(
+        "/v1/explain",
+        files={"file": ("bill.pdf", b"%PDF-1.4\n%\xe2\xe3\xcf\xd3\nnot a pdf\x00\xff", "application/pdf")},
+    )
+    assert r.status_code != 500
+    body = r.json()
+    if r.status_code == 200:
+        assert "card" in body
+        assert all(f["status"] == "unsure" for f in body["card"]["fields"])
+        assert "could not read" in body["card"]["summary"].lower()
+    else:
+        assert r.status_code == 400
+        assert "error" in body
+        assert "card" not in body
+
+
+def test_empty_pdf_text_layer_unreadable_card():
+    draft = Card(
+        type="bill",
+        action="Pay 84.12 USD",
+        summary="Pay the water bill.",
+        fields=[CardField(key="amount", label="Amount", value="84.12 USD")],
+    )
+    r = _client(FakeExplainModel(draft)).post(
+        "/v1/explain",
+        files={"file": ("blank.pdf", pdf_blank(), "application/pdf")},
+    )
+    assert r.status_code == 200
+    card = r.json()["card"]
+    assert "could not read" in card["summary"].lower()
+    assert all(f["status"] == "unsure" for f in card["fields"])
+    assert card["type"] == "other"
 
 
 def test_pdf_text_200_and_page_limit():

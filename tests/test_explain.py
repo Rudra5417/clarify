@@ -14,6 +14,34 @@ def test_oversize_raises():
     assert ei.value.code == "oversize"
 
 
+def test_unreadable_returns_card_without_calling_model():
+    card = explain(
+        Extracted(
+            kind="pdf",
+            text_layer="",
+            image_bytes=None,
+            page_limit_hit=True,
+            source="file",
+            error="unreadable",
+        ),
+        FakeExplainModel(Card(type="bill", action="Pay", summary="invented"), fail="timeout"),
+    )
+    assert card.type == "other"
+    assert "could not read" in card.summary.lower()
+    assert all(f.status == "unsure" for f in card.fields)
+    assert card.page_limit_hit is True
+
+
+def test_model_fail_raises():
+    draft = Card(type="bill", action="Pay", summary="invented")
+    with pytest.raises(ExplainError) as ei:
+        explain(
+            Extracted(kind="text", text_layer="hi", image_bytes=None, page_limit_hit=False, source="selection", error=None),
+            FakeExplainModel(draft, fail="model"),
+        )
+    assert ei.value.code == "model"
+
+
 def test_timeout_raises_no_card():
     draft = Card(type="bill", action="Pay", summary="invented")
     with pytest.raises(ExplainError) as ei:

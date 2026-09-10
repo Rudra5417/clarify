@@ -23,19 +23,48 @@ class Extracted:
 
 
 def extract_pdf(data: bytes) -> Extracted:
-    reader = PdfReader(BytesIO(data))
-    page_limit_hit = len(reader.pages) > MAX_PDF_PAGES
-    parts: list[str] = []
-    for page in reader.pages[:MAX_PDF_PAGES]:
-        parts.append(page.extract_text() or "")
-    return Extracted(
-        kind="pdf",
-        text_layer="\n".join(parts),
-        image_bytes=None,
-        page_limit_hit=page_limit_hit,
-        source="file",
-        error=None,
-    )
+    if not data:
+        return Extracted(
+            kind="pdf",
+            text_layer=None,
+            image_bytes=None,
+            page_limit_hit=False,
+            source="file",
+            error="empty",
+        )
+    try:
+        reader = PdfReader(BytesIO(data))
+        page_limit_hit = len(reader.pages) > MAX_PDF_PAGES
+        parts: list[str] = []
+        for page in reader.pages[:MAX_PDF_PAGES]:
+            parts.append(page.extract_text() or "")
+        text_layer = "\n".join(parts)
+        if not text_layer.strip():
+            return Extracted(
+                kind="pdf",
+                text_layer=text_layer,
+                image_bytes=None,
+                page_limit_hit=page_limit_hit,
+                source="file",
+                error="unreadable",
+            )
+        return Extracted(
+            kind="pdf",
+            text_layer=text_layer,
+            image_bytes=None,
+            page_limit_hit=page_limit_hit,
+            source="file",
+            error=None,
+        )
+    except Exception:
+        return Extracted(
+            kind="pdf",
+            text_layer=None,
+            image_bytes=None,
+            page_limit_hit=False,
+            source="file",
+            error="unreadable",
+        )
 
 
 def extract_image(data: bytes) -> Extracted:

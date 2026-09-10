@@ -16,3 +16,9 @@ def pdf_with_text(text: str) -> bytes:
     pdf.set_font("Helvetica", size=12)
     pdf.multi_cell(0, 8, text)
     return bytes(pdf.output())
+
+
+def pdf_blank() -> bytes:
+    pdf = FPDF()
+    pdf.add_page()
+    return bytes(pdf.output())

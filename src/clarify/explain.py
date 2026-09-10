@@ -15,8 +15,22 @@ class ExplainError(Exception):
         super().__init__(message)
 
 
+def unreadable_card(*, page_limit_hit: bool = False) -> Card:
+    return Card(
+        type="other",
+        action="ignore",
+        summary="We could not read this document. All fields are unsure.",
+        page_limit_hit=page_limit_hit,
+        fields=[],
+    )
+
+
 def explain(extracted: Extracted, model: "ExplainModel") -> Card:
     if extracted.error in ("empty", "oversize"):
+        raise ExplainError(extracted.error, extracted.error)
+    if extracted.error == "unreadable":
+        return unreadable_card(page_limit_hit=extracted.page_limit_hit)
+    if extracted.error:
         raise ExplainError(extracted.error, extracted.error)
 
     card = model.complete(text=extracted.text_layer, image=extracted.image_bytes)

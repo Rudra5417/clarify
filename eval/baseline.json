@@ -1,0 +1,8 @@
+{
+  "sure_accuracy": 1.0,
+  "catch_rate": 1.0,
+  "n_items": 40,
+  "n_sure_fields": 90,
+  "n_wrong_fields": 10,
+  "note": "frozen FakeExplainModel-style sweep: correct+sure except 10 items with one wrong+unsure field"
+}

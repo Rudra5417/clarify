@@ -1,8 +1,10 @@
-"""FastAPI app: POST /v1/explain and GET /health."""
+"""FastAPI app: POST /v1/explain, GET /v1/eval, and GET /health."""
 
 from __future__ import annotations
 
+import json
 import time
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Request
@@ -16,6 +18,7 @@ from clarify_api.privacy import get_privacy_logger, log_explain_event
 
 _IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
 _IMAGE_TYPES = ("image/png", "image/jpeg", "image/jpg", "image/webp", "image/")
+_EVAL_DIR = Path(__file__).resolve().parents[2] / "eval"
 
 
 def create_app(model: ExplainModel) -> FastAPI:
@@ -25,6 +28,16 @@ def create_app(model: ExplainModel) -> FastAPI:
     @app.get("/health")
     def health() -> dict[str, str]:
         return {"status": "ok"}
+
+    @app.get("/v1/eval")
+    def v1_eval() -> dict[str, Any]:
+        baseline_path = _EVAL_DIR / "baseline.json"
+        labels_path = _EVAL_DIR / "labels.json"
+        baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
+        labels = json.loads(labels_path.read_text(encoding="utf-8"))
+        out = dict(baseline)
+        out["n_items"] = len(labels)
+        return out
 
     @app.post("/v1/explain")
     async def v1_explain(request: Request) -> Any:

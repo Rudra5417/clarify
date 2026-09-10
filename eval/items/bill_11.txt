@@ -1,0 +1,5 @@
+From: Utility Co 11
+Subject: Monthly bill #11
+Amount due: 31.50 USD
+Due date: 2026-12-15
+Please pay by the due date.

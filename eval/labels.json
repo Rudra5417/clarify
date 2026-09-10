@@ -1,0 +1,1422 @@
+[
+  {
+    "id": "bill_01",
+    "file": "items/bill_01.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 1",
+      "subject": "Monthly bill #1",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 21.50 USD",
+      "summary": "Pay 21.50 USD to Utility Co 1 by 2026-02-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "21.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-02-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 1",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_02",
+    "file": "items/bill_02.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 2",
+      "subject": "Monthly bill #2",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 22.50 USD",
+      "summary": "Pay 22.50 USD to Utility Co 2 by 2026-03-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "22.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-03-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 2",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_03",
+    "file": "items/bill_03.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "Utility Co 3",
+      "subject": "Monthly bill #3",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 23.50 USD",
+      "summary": "Pay 23.50 USD to Utility Co 3 by 2026-04-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "23.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-04-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 3",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_04",
+    "file": "items/bill_04.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 4",
+      "subject": "Monthly bill #4",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 24.50 USD",
+      "summary": "Pay 24.50 USD to Utility Co 4 by 2026-05-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "24.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-05-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 4",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_05",
+    "file": "items/bill_05.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 5",
+      "subject": "Monthly bill #5",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 25.50 USD",
+      "summary": "Pay 25.50 USD to Utility Co 5 by 2026-06-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "25.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-06-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 5",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_06",
+    "file": "items/bill_06.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "Utility Co 6",
+      "subject": "Monthly bill #6",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 26.50 USD",
+      "summary": "Pay 26.50 USD to Utility Co 6 by 2026-07-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "26.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-07-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 6",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_07",
+    "file": "items/bill_07.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 7",
+      "subject": "Monthly bill #7",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 27.50 USD",
+      "summary": "Pay 27.50 USD to Utility Co 7 by 2026-08-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "27.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-08-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 7",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_08",
+    "file": "items/bill_08.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 8",
+      "subject": "Monthly bill #8",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 28.50 USD",
+      "summary": "Pay 28.50 USD to Utility Co 8 by 2026-09-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "28.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-09-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 8",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_09",
+    "file": "items/bill_09.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "Utility Co 9",
+      "subject": "Monthly bill #9",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 29.50 USD",
+      "summary": "Pay 29.50 USD to Utility Co 9 by 2026-10-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "29.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-10-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 9",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_10",
+    "file": "items/bill_10.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 10",
+      "subject": "Monthly bill #10",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 30.50 USD",
+      "summary": "Pay 30.50 USD to Utility Co 10 by 2026-11-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "30.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-11-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 10",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_11",
+    "file": "items/bill_11.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 11",
+      "subject": "Monthly bill #11",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 31.50 USD",
+      "summary": "Pay 31.50 USD to Utility Co 11 by 2026-12-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "31.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-12-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 11",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_12",
+    "file": "items/bill_12.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "Utility Co 12",
+      "subject": "Monthly bill #12",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 32.50 USD",
+      "summary": "Pay 32.50 USD to Utility Co 12 by 2026-01-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "32.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-01-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 12",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_13",
+    "file": "items/bill_13.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 13",
+      "subject": "Monthly bill #13",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 33.50 USD",
+      "summary": "Pay 33.50 USD to Utility Co 13 by 2026-02-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "33.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-02-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 13",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_14",
+    "file": "items/bill_14.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 14",
+      "subject": "Monthly bill #14",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 34.50 USD",
+      "summary": "Pay 34.50 USD to Utility Co 14 by 2026-03-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "34.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-03-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 14",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_15",
+    "file": "items/bill_15.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "Utility Co 15",
+      "subject": "Monthly bill #15",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 35.50 USD",
+      "summary": "Pay 35.50 USD to Utility Co 15 by 2026-04-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "35.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-04-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 15",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_16",
+    "file": "items/bill_16.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 16",
+      "subject": "Monthly bill #16",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 36.50 USD",
+      "summary": "Pay 36.50 USD to Utility Co 16 by 2026-05-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "36.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-05-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 16",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_17",
+    "file": "items/bill_17.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 17",
+      "subject": "Monthly bill #17",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 37.50 USD",
+      "summary": "Pay 37.50 USD to Utility Co 17 by 2026-06-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "37.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-06-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 17",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_18",
+    "file": "items/bill_18.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "Utility Co 18",
+      "subject": "Monthly bill #18",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 38.50 USD",
+      "summary": "Pay 38.50 USD to Utility Co 18 by 2026-07-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "38.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-07-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 18",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_19",
+    "file": "items/bill_19.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 19",
+      "subject": "Monthly bill #19",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 39.50 USD",
+      "summary": "Pay 39.50 USD to Utility Co 19 by 2026-08-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "39.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-08-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 19",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "bill_20",
+    "file": "items/bill_20.txt",
+    "type": "bill",
+    "card": {
+      "type": "bill",
+      "sender": "Utility Co 20",
+      "subject": "Monthly bill #20",
+      "amount": null,
+      "deadline": null,
+      "action": "Pay 40.50 USD",
+      "summary": "Pay 40.50 USD to Utility Co 20 by 2026-09-15.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "40.50 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-09-15",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "Utility Co 20",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_01",
+    "file": "items/notice_01.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 1",
+      "subject": "Notice #1",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-02-01",
+      "summary": "Respond to City Office 1 by 2026-02-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-02-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 1",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_02",
+    "file": "items/notice_02.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 2",
+      "subject": "Notice #2",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-03-01",
+      "summary": "Respond to City Office 2 by 2026-03-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-03-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 2",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_03",
+    "file": "items/notice_03.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 3",
+      "subject": "Notice #3",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-04-01",
+      "summary": "Respond to City Office 3 by 2026-04-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-04-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 3",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_04",
+    "file": "items/notice_04.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 4",
+      "subject": "Notice #4",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-05-01",
+      "summary": "Respond to City Office 4 by 2026-05-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-05-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 4",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_05",
+    "file": "items/notice_05.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 5",
+      "subject": "Notice #5",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-06-01",
+      "summary": "Respond to City Office 5 by 2026-06-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-06-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 5",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_06",
+    "file": "items/notice_06.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 6",
+      "subject": "Notice #6",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-07-01",
+      "summary": "Respond to City Office 6 by 2026-07-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-07-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 6",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_07",
+    "file": "items/notice_07.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 7",
+      "subject": "Notice #7",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-08-01",
+      "summary": "Respond to City Office 7 by 2026-08-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-08-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 7",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_08",
+    "file": "items/notice_08.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 8",
+      "subject": "Notice #8",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-09-01",
+      "summary": "Respond to City Office 8 by 2026-09-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-09-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 8",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_09",
+    "file": "items/notice_09.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 9",
+      "subject": "Notice #9",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-01-01",
+      "summary": "Respond to City Office 9 by 2026-01-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-01-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 9",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_10",
+    "file": "items/notice_10.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 10",
+      "subject": "Notice #10",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-02-01",
+      "summary": "Respond to City Office 10 by 2026-02-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-02-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 10",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_11",
+    "file": "items/notice_11.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 11",
+      "subject": "Notice #11",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-03-01",
+      "summary": "Respond to City Office 11 by 2026-03-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-03-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 11",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_12",
+    "file": "items/notice_12.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 12",
+      "subject": "Notice #12",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-04-01",
+      "summary": "Respond to City Office 12 by 2026-04-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-04-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 12",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_13",
+    "file": "items/notice_13.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 13",
+      "subject": "Notice #13",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-05-01",
+      "summary": "Respond to City Office 13 by 2026-05-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-05-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 13",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "notice_14",
+    "file": "items/notice_14.txt",
+    "type": "school_notice",
+    "card": {
+      "type": "school_notice",
+      "sender": "City Office 14",
+      "subject": "Notice #14",
+      "amount": null,
+      "deadline": null,
+      "action": "Respond by 2026-06-01",
+      "summary": "Respond to City Office 14 by 2026-06-01.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "2026-06-01",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Sender",
+          "value": "City Office 14",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "receipt_01",
+    "file": "items/receipt_01.txt",
+    "type": "receipt",
+    "card": {
+      "type": "receipt",
+      "sender": "Corner Mart 1",
+      "subject": null,
+      "amount": null,
+      "deadline": null,
+      "action": "Keep for records",
+      "summary": "Receipt from Corner Mart 1 for 9.99 USD.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "9.99 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Store",
+          "value": "Corner Mart 1",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "receipt_02",
+    "file": "items/receipt_02.txt",
+    "type": "receipt",
+    "card": {
+      "type": "receipt",
+      "sender": "Corner Mart 2",
+      "subject": null,
+      "amount": null,
+      "deadline": null,
+      "action": "Keep for records",
+      "summary": "Receipt from Corner Mart 2 for 10.99 USD.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Amount",
+          "value": "10.99 USD",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "sender",
+          "label": "Store",
+          "value": "Corner Mart 2",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "error_01",
+    "file": "items/error_01.txt",
+    "type": "error_screenshot",
+    "card": {
+      "type": "error_screenshot",
+      "sender": null,
+      "subject": "Error ERR-1001",
+      "amount": null,
+      "deadline": null,
+      "action": "Retry or cancel",
+      "summary": "App error ERR-1001: unable to complete the request.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "error_code",
+          "label": "Error code",
+          "value": "ERR-1001",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "message",
+          "label": "Message",
+          "value": "Unable to complete the request. Try again later.",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "error_02",
+    "file": "items/error_02.txt",
+    "type": "error_screenshot",
+    "card": {
+      "type": "error_screenshot",
+      "sender": null,
+      "subject": "Error ERR-1002",
+      "amount": null,
+      "deadline": null,
+      "action": "Retry or cancel",
+      "summary": "App error ERR-1002: unable to complete the request.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "error_code",
+          "label": "Error code",
+          "value": "ERR-1002",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "message",
+          "label": "Message",
+          "value": "Unable to complete the request. Try again later.",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "doc_snippet",
+    "file": "items/doc_snippet.txt",
+    "type": "draft_doc",
+    "card": {
+      "type": "draft_doc",
+      "sender": "Alex Rivera",
+      "subject": "Q3 planning notes",
+      "amount": null,
+      "deadline": null,
+      "action": "Review before Friday",
+      "summary": "Draft doc needs review before Friday; finalize budget and send invite.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "owner",
+          "label": "Owner",
+          "value": "Alex Rivera",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "value": "Friday",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "sheet",
+    "file": "items/sheet.csv",
+    "type": "spreadsheet",
+    "card": {
+      "type": "spreadsheet",
+      "sender": null,
+      "subject": null,
+      "amount": null,
+      "deadline": null,
+      "action": "Check total 36.50",
+      "summary": "Spreadsheet range totals 36.50 across paper and ink.",
+      "warnings": [],
+      "page_limit_hit": false,
+      "fields": [
+        {
+          "key": "amount",
+          "label": "Total",
+          "value": "36.50",
+          "status": "unsure",
+          "reason": null
+        },
+        {
+          "key": "rows",
+          "label": "Rows",
+          "value": "3",
+          "status": "unsure",
+          "reason": null
+        }
+      ]
+    }
+  }
+]

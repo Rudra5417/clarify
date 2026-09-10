@@ -53,3 +53,12 @@ def test_pdf_text_200_and_page_limit():
     r2 = c.post("/v1/explain", files={"file": ("long.pdf", pdf_with_n_pages(3), "application/pdf")})
     assert r2.status_code == 200
     assert r2.json()["card"]["page_limit_hit"] is True
+
+
+def test_eval_endpoint():
+    r = _client().get("/v1/eval")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["n_items"] == 40
+    assert "sure_accuracy" in body
+    assert "catch_rate" in body

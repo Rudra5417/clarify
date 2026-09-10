@@ -1,0 +1,5 @@
+[Error dialog screenshot stand-in]
+Title: Something went wrong
+Code: ERR-1002
+Message: Unable to complete the request. Try again later.
+Buttons: [Retry] [Cancel]

@@ -1,0 +1,5 @@
+From: Utility Co 16
+Subject: Monthly bill #16
+Amount due: 36.50 USD
+Due date: 2026-05-15
+Please pay by the due date.

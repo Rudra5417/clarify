@@ -4,17 +4,18 @@ from __future__ import annotations
 
 import json
 import time
+from collections import defaultdict, deque
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.datastructures import UploadFile
 
 from clarify.explain import ExplainError, explain
 from clarify.extract import Extracted, extract_image, extract_pdf, extract_text
-from clarify.model import ExplainModel
+from clarify.model import ExplainModel, resolve_model_from_env
 from clarify_api.privacy import get_privacy_logger, log_explain_event
 
 _IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
@@ -22,11 +23,57 @@ _IMAGE_TYPES = ("image/png", "image/jpeg", "image/jpg", "image/webp", "image/")
 _ROOT = Path(__file__).resolve().parents[2]
 _EVAL_DIR = _ROOT / "eval"
 _WEB_DIR = _ROOT / "web"
+_LOCALHOST_HOSTS = frozenset({"127.0.0.1", "localhost", "::1"})
 
 
-def create_app(model: ExplainModel) -> FastAPI:
+class IpRateLimiter:
+    """In-memory sliding-window limiter: max_requests per window_seconds per IP."""
+
+    def __init__(self, max_requests: int = 30, window_seconds: float = 3600.0) -> None:
+        self.max_requests = max_requests
+        self.window_seconds = window_seconds
+        self._hits: dict[str, deque[float]] = defaultdict(deque)
+
+    def allow(self, ip: str) -> bool:
+        if ip in _LOCALHOST_HOSTS:
+            return True
+        now = time.monotonic()
+        q = self._hits[ip]
+        cutoff = now - self.window_seconds
+        while q and q[0] < cutoff:
+            q.popleft()
+        if len(q) >= self.max_requests:
+            return False
+        q.append(now)
+        return True
+
+
+def _host_is_localhost(request: Request) -> bool:
+    host = request.headers.get("host") or ""
+    hostname = host.split("%", 1)[0].split(":", 1)[0].strip().lower()
+    if hostname.startswith("[") and hostname.endswith("]"):
+        hostname = hostname[1:-1]
+    return hostname in _LOCALHOST_HOSTS
+
+
+def create_app(model: ExplainModel | None = None) -> FastAPI:
+    if model is None:
+        model = resolve_model_from_env()
+
     app = FastAPI(title="clarify")
     logger = get_privacy_logger()
+    limiter = IpRateLimiter(max_requests=30, window_seconds=3600.0)
+
+    def enforce_explain_rate_limit(request: Request) -> None:
+        # Local drop page / demo: Host 127.0.0.1 is unlimited.
+        if _host_is_localhost(request):
+            return
+        ip = request.client.host if request.client else ""
+        if not limiter.allow(ip):
+            raise HTTPException(
+                status_code=429,
+                detail={"error": "rate_limit", "message": "too many requests"},
+            )
 
     @app.get("/health")
     def health() -> dict[str, str]:
@@ -43,7 +90,10 @@ def create_app(model: ExplainModel) -> FastAPI:
         return out
 
     @app.post("/v1/explain")
-    async def v1_explain(request: Request) -> Any:
+    async def v1_explain(
+        request: Request,
+        _: None = Depends(enforce_explain_rate_limit),
+    ) -> Any:
         started = time.perf_counter()
         error_code: str | None = None
         card_type: str | None = None

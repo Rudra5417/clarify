@@ -1,0 +1,55 @@
+# tests/test_api.py
+from fastapi.testclient import TestClient
+from clarify.model import FakeExplainModel
+from clarify.schema import Card, CardField
+from clarify_api.app import create_app
+from tests.fixtures.make_pdf import pdf_with_n_pages, pdf_with_text
+
+
+def _client(model=None) -> TestClient:
+    draft = Card(
+        type="bill",
+        sender="City Water",
+        action="Pay 84.12 USD",
+        summary="Pay the water bill.",
+        fields=[CardField(key="amount", label="Amount", value="84.12 USD")],
+    )
+    app = create_app(model or FakeExplainModel(draft))
+    return TestClient(app)
+
+
+def test_empty_body_400():
+    r = _client().post("/v1/explain")
+    assert r.status_code == 400
+    assert r.json()["error"] in {"empty", "oversize"}
+
+
+def test_oversize_image_400():
+    r = _client().post("/v1/explain", files={"file": ("x.bin", b"x" * (10 * 1024 * 1024 + 1), "application/octet-stream")})
+    assert r.status_code == 400
+    assert r.json()["error"] == "oversize"
+
+
+def test_timeout_503_no_card():
+    app = create_app(FakeExplainModel(Card(type="other", action="ignore", summary="x"), fail="timeout"))
+    r = TestClient(app).post("/v1/explain", json={"text": "hello", "fallback": False})
+    assert r.status_code == 503
+    assert "card" not in r.json()
+    assert r.json()["error"] == "timeout"
+
+
+def test_pdf_text_200_and_page_limit():
+    draft = Card(
+        type="bill",
+        action="Pay 84.12 USD",
+        summary="Pay the water bill 84.12 USD",
+        fields=[CardField(key="amount", label="Amount", value="84.12 USD")],
+    )
+    c = _client(FakeExplainModel(draft))
+    r = c.post("/v1/explain", files={"file": ("bill.pdf", pdf_with_text("Pay 84.12 USD"), "application/pdf")})
+    assert r.status_code == 200
+    assert r.json()["card"]["fields"][0]["status"] == "sure"
+
+    r2 = c.post("/v1/explain", files={"file": ("long.pdf", pdf_with_n_pages(3), "application/pdf")})
+    assert r2.status_code == 200
+    assert r2.json()["card"]["page_limit_hit"] is True

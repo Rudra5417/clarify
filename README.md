@@ -2,7 +2,7 @@
 
 One-shot reader for whatever is already on screen. Chrome shortcut → what this is, what to do, which fields might be wrong.
 
-Portfolio project for an AI product engineer role. Not a chatbot. Not a file locker. No Drive login. No native apps.
+Not a chatbot. Not a file locker. No Drive login. No native apps.
 
 **Design spec:** [docs/superpowers/specs/2026-09-08-clarify-design.md](docs/superpowers/specs/2026-09-08-clarify-design.md)
 

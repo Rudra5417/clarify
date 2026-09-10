@@ -95,12 +95,13 @@ class OpenAICompatModel:
                 {"role": "user", "content": user_content},
             ],
             "temperature": 0,
-            "response_format": {"type": "json_object"},
         }
         url = f"{self.base_url}/chat/completions"
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
+            "HTTP-Referer": "http://127.0.0.1:8788",
+            "X-Title": "Clarify",
         }
         try:
             with httpx.Client(timeout=self.timeout) as client:
